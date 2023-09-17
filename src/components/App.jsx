@@ -28,12 +28,12 @@ export class App extends Component {
         .fetchImages()
         .then(({ data: { hits, totalHits } }) => {
           if (hits.length < 1) {
-            Notiflix.Notify.error('По вашому запиту нічого не знайдено');
+            Notiflix.Notify.error('Found nothing on your request');
             this.setState({ loading: false });
             return;
           }
           Notiflix.Notify.success(
-            `по вашому запиту знайдено ${totalHits} картинок`
+            `On your request found ${totalHits} pictures`
           );
           if (hits.length >= pixabayAPI.per_page) {
             this.setState({ showButton: true });
