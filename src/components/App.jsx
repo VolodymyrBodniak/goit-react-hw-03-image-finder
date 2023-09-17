@@ -57,7 +57,7 @@ export class App extends Component {
       .fetchImages()
       .then(({ data: { hits } }) => {
         if (hits.length < pixabayAPI.per_page) {
-          Notiflix.Notify.warning('кінець...');
+          Notiflix.Notify.warning('end...');
           this.setState({ showButton: false });
         }
         this.setState(
@@ -80,7 +80,6 @@ export class App extends Component {
         <></>
         {this.state.showButton && <Button loadMore={this.loadMore} />}
         {this.state.loading && <Loader />}
-        {/* <ToastContainer autoClose={3000} /> */}
       </div>
     );
   }
